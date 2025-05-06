@@ -11,7 +11,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <header>
     <div class="container">
         <nav>
-            <a href="<?php echo $currentPage === 'index.php' ? '#' : '../index.php'; ?>" class="logo">Recycle<span>It</span></a>
+            <a href="<?php echo $currentPage === 'index.php' ? '#' : '../index.php'; ?>" class="logo">Re<span>shina</span></a>
             
             <div class="nav-links">
                 <a href="<?php echo $currentPage === 'index.php' ? '#' : '../index.php'; ?>" class="<?php echo $currentPage === 'index.php' ? 'active' : ''; ?>">Beranda</a>
