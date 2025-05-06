@@ -1,4 +1,4 @@
-// Main JavaScript file for ReCycleIt
+// Main JavaScript file for Reshina
 
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle

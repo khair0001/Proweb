@@ -1,8 +1,8 @@
--- Database structure for ReCycleIt
+-- Database structure for Reshina
 
 -- Create database
-CREATE DATABASE IF NOT EXISTS recycleit;
-USE recycleit;
+CREATE DATABASE IF NOT EXISTS Reshina;
+USE Reshina;
 
 -- Users table
 CREATE TABLE IF NOT EXISTS users (

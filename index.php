@@ -66,7 +66,7 @@ try {
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">Mengapa <span>ReCycleIt</span>?</h2>
+            <h2 class="section-title">Mengapa <span>Reshina</span>?</h2>
             
             <div class="about-cards">
                 <div class="about-card">

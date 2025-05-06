@@ -9,7 +9,7 @@ $prefix = $isRootPage ? '' : '../';
     <div class="container">
         <div class="footer-content">
             <div class="footer-column">
-                <h3>ReCycleIt</h3>
+                <h3>Reshina</h3>
                 <p style="color: #BBBBBB; margin-bottom: 15px; font-size: 14px;">Platform jual beli, donasi, dan lelang barang bekas layak pakai untuk lingkungan yang lebih baik.</p>
                 
                 <ul class="footer-links">
@@ -30,7 +30,7 @@ $prefix = $isRootPage ? '' : '../';
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; <?php echo date('Y'); ?> ReCycleIt. Semua Hak Dilindungi.</p>
+            <p>&copy; <?php echo date('Y'); ?> Reshina. Semua Hak Dilindungi.</p>
         </div>
     </div>
 </footer>

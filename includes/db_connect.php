@@ -2,12 +2,12 @@
 /**
  * Database Connection
  * 
- * Establishes connection to MySQL database for ReCycleIt
+ * Establishes connection to MySQL database for Reshina
  */
 
 // Database configuration
 $db_host = 'localhost';
-$db_name = 'recycleit';
+$db_name = 'Reshina';
 $db_user = 'root';
 $db_pass = '';
 

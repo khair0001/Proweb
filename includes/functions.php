@@ -2,7 +2,7 @@
 /**
  * Functions Library
  * 
- * Contains all helper functions for ReCycleIt application
+ * Contains all helper functions for Reshina application
  */
 
 // Start session if not already started
