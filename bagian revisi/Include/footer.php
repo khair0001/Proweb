@@ -1,5 +1,5 @@
 <!-- Link to Footer CSS -->
-<link rel="stylesheet" href="../assets/css/index.css">
+<link rel="stylesheet" href="../assets/css/components/footer.css">
 
 <footer class="landing-footer">
       <div class="footer-content">

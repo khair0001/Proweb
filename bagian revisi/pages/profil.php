@@ -4,7 +4,7 @@ session_start();
 
 // Jika user belum login, redirect ke halaman login
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: ../pages/login.php");
     exit();
 }
 
@@ -14,7 +14,7 @@ $username = $_SESSION['username'];
 $email = $_SESSION['email'];
 
 // Koneksi ke database untuk mengambil informasi user tambahan
-include 'include/koneksi.php';
+include '../include/koneksi.php';
 
 // Ambil informasi user tambahan jika ada
 $query = "SELECT * FROM users WHERE id = '$user_id'";
@@ -53,7 +53,7 @@ if (isset($_POST['update_profile'])) {
     
     // Proses upload gambar profil
     if (isset($_FILES['profile_pic']) && $_FILES['profile_pic']['error'] === UPLOAD_ERR_OK) {
-        $upload_dir = "../assets/image/profile/";
+        $upload_dir = "../upload/profile";
         $temp_name = $_FILES['profile_pic']['tmp_name'];
         $file_name = basename($_FILES['profile_pic']['name']);
         $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
@@ -112,12 +112,11 @@ if (isset($_POST['update_profile'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Saya</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/dashboard.css">
-    <link rel="stylesheet" href="../assets/css/profil.css">
 </head>
 <body>
-<?php include 'include/header.php'; ?>
+<?php include '../include/header.php'; ?>
     
     <!-- Main content -->
     <main class="profile-container">
@@ -174,21 +173,21 @@ if (isset($_POST['update_profile'])) {
             <!-- Tab Content: Info -->
             <div id="info" class="tab-content active">
                 <h2><i class="fas fa-info-circle"></i> Informasi Pengguna</h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                <div class="profile-grid">
                     <div>
                         <h3>Kontak</h3>
                         <table style="width: 100%; border-collapse: collapse;">
                             <tr>
-                                <td style="padding: 10px 0; border-bottom: 1px solid #eee; width: 40%;"><strong>Nama</strong></td>
-                                <td style="padding: 10px 0; border-bottom: 1px solid #eee;"><?php echo $username; ?></td>
+                                <td class="label"><strong>Nama</strong></td>
+                                <td><?php echo $username; ?></td>
                             </tr>
                             <tr>
-                                <td style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Email</strong></td>
-                                <td style="padding: 10px 0; border-bottom: 1px solid #eee;"><?php echo $email; ?></td>
+                                <td class="label"><strong>Email</strong></td>
+                                <td><?php echo $email; ?></td>
                             </tr>
                             <tr>
-                                <td style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Telepon</strong></td>
-                                <td style="padding: 10px 0; border-bottom: 1px solid #eee;"><?php echo $phone; ?></td>
+                                <td class="label"><strong>Telepon</strong></td>
+                                <td><?php echo $phone; ?></td>
                             </tr>
                         </table>
                     </div>
@@ -196,12 +195,12 @@ if (isset($_POST['update_profile'])) {
                         <h3>Alamat</h3>
                         <table style="width: 100%; border-collapse: collapse;">
                             <tr>
-                                <td style="padding: 10px 0; border-bottom: 1px solid #eee; width: 40%;"><strong>Alamat Lengkap</strong></td>
-                                <td style="padding: 10px 0; border-bottom: 1px solid #eee;"><?php echo $address; ?></td>
+                                <td class="label"><strong>Alamat Lengkap</strong></td>
+                                <td><?php echo $address; ?></td>
                             </tr>
                             <tr>
-                                <td style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Kota</strong></td>
-                                <td style="padding: 10px 0; border-bottom: 1px solid #eee;"><?php echo $city; ?></td>
+                                <td class="label"><strong>Kota</strong></td>
+                                <td><?php echo $city; ?></td>
                             </tr>
                         </table>
                     </div>
@@ -280,11 +279,11 @@ if (isset($_POST['update_profile'])) {
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="profile_pic">Foto Profil</label>
-                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                            <img src="<?php echo $profile_pic; ?>" alt="Preview" id="profile-preview" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-right: 20px; border: 3px solid #379aff;">
+                        <div class="profile-image-upload">
+                            <img src="<?php echo $profile_pic; ?>" alt="Preview" id="profile-preview" class="profile-preview">
                             <div>
-                                <input type="file" id="profile_pic" name="profile_pic" class="form-control" style="border: none; padding-left: 0;" accept="image/*" onchange="previewImage(this)">
-                                <p style="font-size: 12px; color: #666; margin-top: 5px;">Format yang didukung: JPG, JPEG, PNG, GIF. Ukuran maks: 2MB</p>
+                                <input type="file" id="profile_pic" name="profile_pic" class="form-control file-upload-input" accept="image/*" onchange="previewImage(this)">
+                                <p class="file-upload-help">Format yang didukung: JPG, JPEG, PNG, GIF. Ukuran maks: 2MB</p>
                             </div>
                         </div>
                     </div>

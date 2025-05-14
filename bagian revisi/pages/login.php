@@ -10,7 +10,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 }
 
 // Koneksi ke database
-include 'include/koneksi.php';
+include '../include/koneksi.php';
 
 if (isset($_POST['submit'])) {
     // Ambil data email dan password dari form
@@ -60,7 +60,7 @@ if (isset($_POST['submit'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login Page</title>
-  <link rel="stylesheet" href="../assets/css2/login.css" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
 
 <body>

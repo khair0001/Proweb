@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'include/koneksi.php';
+include '../include/koneksi.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: ../pages/login.php");
     exit();
 }
 
@@ -17,12 +17,12 @@ $username = $_SESSION['username']
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reshina - Beranda</title>
-  <link rel="stylesheet" href="../assets/css/styles.css">
-  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <!-- <link rel="stylesheet" href="../assets/css/dashboard.css"> -->
+  <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<?php include 'include/header.php'; ?>  
+<?php include '../include/header.php'; ?>
       <!-- Categories Section -->
       <section class="categories-section">
         <div class="section-header">
@@ -121,7 +121,7 @@ $username = $_SESSION['username']
           </div>
         </div>
       </section>
-      <?php include 'include/footer.php'; ?>
+      <?php include '../include/footer.php'; ?>
   <script src="../assets/js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,96 @@
+/* 
+ * form.css - Common form styles
+ * Created as part of CSS reorganization
+ */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #379aff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(55, 154, 255, 0.2);
+}
+
+.form-error {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.form-success {
+  color: #2ecc71;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.form-alert {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.form-alert.error {
+  background-color: #ffeeee;
+  color: #e74c3c;
+  border: 1px solid #f5b7b1;
+}
+
+.form-alert.success {
+  background-color: #eeffee;
+  color: #27ae60;
+  border: 1px solid #a9dfbf;
+}
+
+.form-button {
+  background-color: #379aff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.form-button:hover {
+  background-color: #2980b9;
+}
+
+.form-button.secondary {
+  background-color: #95a5a6;
+}
+
+.form-button.secondary:hover {
+  background-color: #7f8c8d;
+}
+
+.form-file-input {
+  border: none;
+  padding-left: 0;
+}
+
+.form-help-text {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+}

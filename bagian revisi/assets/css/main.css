@@ -1,0 +1,19 @@
+/* 
+ * main.css - Main CSS file that imports all other CSS files
+ * Created as part of CSS reorganization
+ */
+
+/* Import global styles */
+@import url('global.css');
+
+/* Import component styles */
+@import url('components/navbar.css');
+@import url('components/footer.css');
+@import url('components/form.css');
+
+/* Import page-specific styles */
+@import url('index.css');
+@import url('login.css');
+@import url('register.css');
+@import url('home.css');
+@import url('profil.css');

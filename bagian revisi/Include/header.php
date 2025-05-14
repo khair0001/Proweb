@@ -1,8 +1,8 @@
 <?php
-include 'include/koneksi.php';
+include 'koneksi.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: ../pages/login.php");
     exit();
 }
 
@@ -26,12 +26,12 @@ if ($result && mysqli_num_rows($result) === 1) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reshina - Beranda</title>
-  <!-- <link rel="stylesheet" href="../assets/css/styles.css"> -->
-  <link rel="stylesheet" href="../assets/css2/header.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <div class="dashboard-container">
+    
     <header class="dashboard-header">
       <div class="logo">
         <h1>RESHINA</h1>
@@ -39,7 +39,7 @@ if ($result && mysqli_num_rows($result) === 1) {
       <div class="search-bar">
         <form action="search.php" method="GET">
           <input type="text" name="keyword" placeholder="Cari barang bekas berkualitas...">
-          <button type="submit"><i class="fas fa-search"></i></button>
+          <!-- buatlah search button di dalam search bar -->
         </form>
       </div>
       <div class="user-menu">
@@ -48,11 +48,11 @@ if ($result && mysqli_num_rows($result) === 1) {
         <div class="user-dropdown">
           <img src="<?php echo($profile_pic); ?>" alt="User Avatar" class="user-avatar">
           <div class="dropdown-content">
-            <a href="profil.php"><i class="fas fa-user"></i><?php echo($username); ?></a>
+            <a href="../pages/profil.php"><i class="fas fa-user"></i><?php echo($username); ?></a>
             <a href="barang-saya.php"><i class="fas fa-box"></i> Barang Saya</a>
             <a href="riwayat.php"><i class="fas fa-history"></i> Riwayat Transaksi</a>
             <a href="pengaturan.php"><i class="fas fa-cog"></i> Pengaturan</a>
-            <a href="../logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
           </div>
         </div>
       </div>

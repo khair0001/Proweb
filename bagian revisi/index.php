@@ -14,9 +14,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
   <!-- Favicon -->
   <link rel="shortcut icon" href="assets/image/favicon.ico" type="image/x-icon">
   <!-- CSS Files -->
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="assets/css/index.css">
-  <link rel="stylesheet" href="assets/css/user-menu.css">
+  <link rel="stylesheet" href="assets/css/main.css">
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Google Fonts -->
@@ -51,14 +49,14 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
             <a href="pages/barang-saya.php"><i class="fas fa-box"></i> Barang Saya</a>
             <a href="pages/riwayat.php"><i class="fas fa-history"></i> Riwayat Transaksi</a>
             <a href="pages/pengaturan.php"><i class="fas fa-cog"></i> Pengaturan</a>
-            <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="includes/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
           </div>
         </div>
       </div>
       <?php else: ?>
       <div class="auth-buttons">
         <a href="pages/login.php" class="btn login-btn-header">Masuk</a>
-        <a href="pages/register.php" class="btn register-btn">Daftar</a>
+        <a href="pages/register.html" class="btn register-btn">Daftar</a>
       </div>
       <?php endif; ?>
       <div class="mobile-menu-toggle">
@@ -71,7 +69,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
         <h1>Temukan, Jual, atau Donasikan Barang Bekas Berkualitas</h1>
         <p>Platform jual beli dan donasi barang bekas yang masih layak pakai dengan harga terjangkau. Bersama Reshina, mari berikan kesempatan kedua pada barang bekas berkualitas.</p>
         <div class="hero-buttons">
-          <a href="pages/register.php" class="btn primary-btn">Mulai Sekarang</a>
+          <a href="pages/register.html" class="btn primary-btn">Mulai Sekarang</a>
           <a href="#about" class="btn secondary-btn">Pelajari Lebih Lanjut</a>
         </div>
         <div class="hero-stats">

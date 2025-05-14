@@ -1,3 +1,8 @@
+/* 
+ * index.css - Styles specific to index.php
+ * Created as part of CSS reorganization
+ */
+
 /* Index Page Specific Styles */
 :root {
     --primary-color: #379aff;
@@ -131,7 +136,7 @@
     right: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../image/pattern.svg');
+    background-image: url('../assets/image/pattern.svg');
     background-repeat: no-repeat;
     background-position: right top;
     background-size: 50%;
@@ -223,12 +228,32 @@
     transform: perspective(1000px) rotateY(0deg);
 }
 
-/* About Section */
-.about-section {
-    padding: 100px 5%;
-    background-color: #fff;
+.hero-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    animation: fadeInUp 1s ease 0.6s;
+    animation-fill-mode: both;
 }
 
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* Section Common Styles */
 .section-header {
     text-align: center;
     margin-bottom: 50px;
@@ -238,19 +263,6 @@
     font-size: 2.5rem;
     color: var(--dark-color);
     margin-bottom: 15px;
-    position: relative;
-    display: inline-block;
-}
-
-.section-header h2::after {
-    content: '';
-    position: absolute;
-    width: 80px;
-    height: 3px;
-    background-color: var(--primary-color);
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .section-header p {
@@ -260,10 +272,17 @@
     margin: 0 auto;
 }
 
+/* About Section */
+.about-section {
+    padding: 100px 5%;
+    background-color: white;
+}
+
 .about-content {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
+    margin-top: 50px;
 }
 
 .about-text {
@@ -308,18 +327,17 @@
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 50px;
 }
 
 .feature-card {
     background-color: white;
-    padding: 30px;
     border-radius: 10px;
+    padding: 30px;
     box-shadow: var(--box-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
 }
 
 .feature-card:hover {
@@ -335,7 +353,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
+    margin-bottom: 20px;
 }
 
 .feature-icon i {
@@ -350,7 +368,6 @@
 }
 
 .feature-card p {
-    font-size: 1rem;
     color: var(--text-color);
     line-height: 1.6;
 }
@@ -396,20 +413,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
     font-size: 1.5rem;
     font-weight: 700;
+    margin: 0 auto 30px;
     position: relative;
-}
-
-.step-number::before {
-    content: '';
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    border: 2px solid var(--primary-color);
-    border-radius: 50%;
-    opacity: 0.3;
 }
 
 .step h3 {
@@ -419,9 +426,13 @@
 }
 
 .step p {
-    font-size: 1rem;
     color: var(--text-color);
     line-height: 1.6;
+}
+
+.cta-button-container {
+    text-align: center;
+    margin-top: 50px;
 }
 
 /* Testimonials Section */
@@ -431,8 +442,8 @@
 }
 
 .testimonials-slider {
-    margin-top: 50px;
     display: flex;
+    margin-top: 50px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -458,12 +469,13 @@
 
 .testimonial-card {
     min-width: 300px;
-    flex: 1;
+    max-width: 400px;
     background-color: white;
-    padding: 30px;
     border-radius: 10px;
+    padding: 30px;
     box-shadow: var(--box-shadow);
     scroll-snap-align: start;
+    flex: 1 0 350px;
 }
 
 .testimonial-header {
@@ -487,21 +499,18 @@
 }
 
 .testimonial-info h4 {
-    margin: 0;
-    font-size: 1.1rem;
+    margin: 0 0 5px 0;
     color: var(--dark-color);
 }
 
 .testimonial-info p {
-    margin: 5px 0 0;
-    font-size: 0.9rem;
+    margin: 0 0 10px 0;
     color: var(--text-color);
+    font-size: 0.9rem;
 }
 
 .testimonial-rating {
     color: #ffc107;
-    font-size: 1rem;
-    margin-top: 5px;
 }
 
 .testimonial-content {
@@ -509,7 +518,6 @@
 }
 
 .testimonial-content p {
-    font-size: 1rem;
     line-height: 1.6;
     color: var(--text-color);
 }
@@ -558,28 +566,29 @@
     background-color: white;
     color: var(--primary-color);
     border: none;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 .cta-primary-btn:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--light-color);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
 }
 
 .cta-secondary-btn {
     background-color: transparent;
     color: white;
     border: 2px solid white;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 .cta-secondary-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: white;
+    color: var(--primary-color);
     transform: translateY(-2px);
 }
 
