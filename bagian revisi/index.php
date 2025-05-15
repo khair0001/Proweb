@@ -59,9 +59,6 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
         <a href="pages/register.html" class="btn register-btn">Daftar</a>
       </div>
       <?php endif; ?>
-      <div class="mobile-menu-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
     </header>
 
     <section class="hero">
