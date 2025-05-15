@@ -67,6 +67,7 @@ form input[type="password"] {
 
 .forgot {
     float: right;
+    font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 12px;
     text-decoration: none;
     color: #375aff;

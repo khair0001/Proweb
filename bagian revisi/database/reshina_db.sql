@@ -47,15 +47,12 @@ CREATE TABLE IF NOT EXISTS product_images (
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 );
 
--- Insert default categories
-INSERT INTO categories (name, icon) VALUES 
-('Elektronik', 'fas fa-laptop'),
-('Fashion', 'fas fa-tshirt'),
-('Furniture', 'fas fa-couch'),
-('Otomotif', 'fas fa-car'),
-('Hobi & Koleksi', 'fas fa-gamepad'),
-('Olahraga', 'fas fa-volleyball-ball'),
-('Lainnya', 'fas fa-ellipsis-h');
+ALTER TABLE users 
+ADD COLUMN IF NOT EXISTS phone VARCHAR(20) DEFAULT NULL,
+ADD COLUMN IF NOT EXISTS address TEXT DEFAULT NULL,
+ADD COLUMN IF NOT EXISTS city VARCHAR(100) DEFAULT NULL,
+ADD COLUMN IF NOT EXISTS bio TEXT DEFAULT NULL,
+ADD COLUMN IF NOT EXISTS profile_pic VARCHAR(255) DEFAULT '../assets/image/user.png';
 
 -- Insert sample user (password: password123)
 INSERT INTO users (name, email, password) VALUES 

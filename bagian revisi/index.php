@@ -49,7 +49,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
             <a href="pages/barang-saya.php"><i class="fas fa-box"></i> Barang Saya</a>
             <a href="pages/riwayat.php"><i class="fas fa-history"></i> Riwayat Transaksi</a>
             <a href="pages/pengaturan.php"><i class="fas fa-cog"></i> Pengaturan</a>
-            <a href="includes/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="include/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
           </div>
         </div>
       </div>

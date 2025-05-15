@@ -1,6 +1,6 @@
 <?php
 // Include koneksi ke database
-include '../pages/include/koneksi.php';
+include '../include/koneksi.php';
 
 // Jika form registrasi di submit
 if (isset($_POST['submit'])) {
@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 
     // Jalankan query, jika berhasil redirect ke halaman login
     if (mysqli_query($conn, $query)) {
-        header("Location: ../pages/login.php");
+        header("Location: login.php");
     } else {
         // Jika gagal, tampilkan pesan error
         echo "Gagal registrasi: " . mysqli_error($conn);
