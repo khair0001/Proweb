@@ -1,7 +1,13 @@
 <?php
 session_start();
-$is_logged_in = isset($_SESSION['user_id']);
-$username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+include 'Include/koneksi.php';
+
+// Cek apakah user sudah login
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+  // Jika user sudah login, maka arahkan ke halaman home
+  header("Location: pages/home.php");
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -23,42 +29,24 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="landing-container">
-    <header class="landing-header">
-      <div class="logo">
-        <a href="index.php"><h1>RESHINA</h1></a>
-      </div>
-      <nav class="landing-nav">
-        <ul>
-          <li><a href="#about">Tentang Kami</a></li>
-          <li><a href="#features">Fitur</a></li>
-          <li><a href="#how-it-works">Cara Kerja</a></li>
-          <li><a href="#testimonials">Testimoni</a></li>
-          <li><a href="pages/kontak.php">Kontak</a></li>
-        </ul>
-      </nav>
-      <?php if($is_logged_in): ?>
-      <div class="user-menu-landing">
-        <a href="pages/home.php" class="dashboard-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-        <div class="user-dropdown-landing">
-          <img src="assets/image/user.png" alt="User Avatar" class="user-avatar-landing">
-          <span><?php echo $username; ?></span>
-          <i class="fas fa-chevron-down"></i>
-          <div class="dropdown-content-landing">
-            <a href="pages/profil.php"><i class="fas fa-user"></i> Profil Saya</a>
-            <a href="pages/barang-saya.php"><i class="fas fa-box"></i> Barang Saya</a>
-            <a href="pages/riwayat.php"><i class="fas fa-history"></i> Riwayat Transaksi</a>
-            <a href="pages/pengaturan.php"><i class="fas fa-cog"></i> Pengaturan</a>
-            <a href="include/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <div class="landing-container">
+        <header class="landing-header">
+          <div class="logo">
+            <a href="index.php"><h1>RESHINA</h1></a>
           </div>
-        </div>
-      </div>
-      <?php else: ?>
+          <nav class="landing-nav">
+            <ul>
+              <li><a href="#about">Tentang Kami</a></li>
+              <li><a href="#features">Fitur</a></li>
+              <li><a href="#how-it-works">Cara Kerja</a></li>
+              <li><a href="#testimonials">Testimoni</a></li>
+              <li><a href="pages/kontak.php">Kontak</a></li>
+            </ul>
+          </nav>
       <div class="auth-buttons">
         <a href="pages/login.php" class="btn login-btn-header">Masuk</a>
-        <a href="pages/register.html" class="btn register-btn">Daftar</a>
+        <a href="pages/register.php" class="btn register-btn">Daftar</a>
       </div>
-      <?php endif; ?>
     </header>
 
     <section class="hero">
@@ -66,7 +54,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
         <h1>Temukan, Jual, atau Donasikan Barang Bekas Berkualitas</h1>
         <p>Platform jual beli dan donasi barang bekas yang masih layak pakai dengan harga terjangkau. Bersama Reshina, mari berikan kesempatan kedua pada barang bekas berkualitas.</p>
         <div class="hero-buttons">
-          <a href="pages/register.html" class="btn primary-btn">Mulai Sekarang</a>
+          <a href="pages/register.php" class="btn primary-btn">Mulai Sekarang</a>
           <a href="#about" class="btn secondary-btn">Pelajari Lebih Lanjut</a>
         </div>
         <div class="hero-stats">
@@ -337,7 +325,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <?php echo date('Y'); ?> Reshina. All Rights Reserved.</p>
+        <p>Reshina. All Rights Reserved.</p>
         <div class="social-icons">
           <a href="#"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>

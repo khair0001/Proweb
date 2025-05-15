@@ -50,10 +50,15 @@ if (isset($_POST['update_profile'])) {
     $new_city = $_POST['city'];
     $new_bio = $_POST['bio'];
     $profile_pic_path = $profile_pic; // Default ke gambar profil saat ini
-    
-    // Proses upload gambar profil
+        // Proses upload gambar profil
     if (isset($_FILES['profile_pic']) && $_FILES['profile_pic']['error'] === UPLOAD_ERR_OK) {
-        $upload_dir = "../upload/profile";
+        $upload_dir = "../upload/profile/";
+        
+        // Pastikan direktori upload ada
+        if (!file_exists($upload_dir)) {
+            mkdir($upload_dir, 0777, true);
+        }
+        
         $temp_name = $_FILES['profile_pic']['tmp_name'];
         $file_name = basename($_FILES['profile_pic']['name']);
         $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
@@ -69,9 +74,10 @@ if (isset($_POST['update_profile'])) {
                 $upload_path = $upload_dir . $new_filename;
                 
                 if (move_uploaded_file($temp_name, $upload_path)) {
+                    // Simpan path relatif ke database agar konsisten di semua halaman
                     $profile_pic_path = $upload_path;
                 } else {
-                    $error_message = "Gagal mengunggah foto profil.";
+                    $error_message = "Gagal mengunggah foto profil: " . error_get_last()['message'];
                 }
             } else {
                 $error_message = "Hanya file JPG, JPEG, PNG, dan GIF yang diperbolehkan.";
@@ -113,9 +119,10 @@ if (isset($_POST['update_profile'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Saya</title>
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<?php include '../include/header.php'; ?>
+<?php include '../Include/header.php'; ?>
     
     <!-- Main content -->
     <main class="profile-container">
@@ -132,7 +139,8 @@ if (isset($_POST['update_profile'])) {
         <?php endif; ?>
         
         <div class="profile-header">
-            <img src="<?php echo $profile_pic; ?>" alt="<?php echo $username; ?>" class="profile-avatar">
+            <!-- Debug: <?php echo "Path foto: " . $profile_pic; ?> -->
+            <img src="<?php echo $profile_pic; ?>" alt="<?php echo $username; ?>" class="profile-avatar" onerror="this.src='../assets/image/user.png';">
             <div class="profile-info">
                 <h1 class="profile-name"><?php echo $username; ?></h1>
                 <p class="profile-email"><i class="fas fa-envelope"></i> <?php echo $email; ?></p>

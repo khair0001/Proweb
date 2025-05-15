@@ -22,37 +22,36 @@ if ($result && mysqli_num_rows($result) === 1) {
     }
 }
 ?>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reshina - Beranda</title>
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
   <div class="dashboard-container">
-    
     <header class="dashboard-header">
-      <div class="logo">
-        <h1>RESHINA</h1>
+      <div class="header-left">
+        <div class="logo">
+          <a href="/proweb reshina/pages/home.php"><h1>RESHINA</h1></a>
+        </div>
       </div>
+      
       <div class="search-bar">
         <form action="search.php" method="GET">
-          <input type="text" name="keyword" placeholder="Cari barang bekas berkualitas...">
-          <!-- buatlah search button di dalam search bar -->
+          <input type="text" name="query" placeholder="Cari barang..." class="search-input" required>
+          <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
         </form>
       </div>
+      
       <div class="user-menu">
         <a href="unggah-barang.php" class="upload-btn"><i class="fas fa-plus"></i> <span>Pasang Barang</span></a>
-        <a href="notifikasi.php" class="notification-btn"><i class="fas fa-bell"></i></a>
+        <div class="notification-wrapper">
+          <a href="notifikasi.php" class="notification-btn"><i class="fas fa-bell"></i></a>
+          <span class="notification-badge">2</span>
+        </div>
         <div class="user-dropdown">
-          <img src="<?php echo($profile_pic); ?>" alt="User Avatar" class="user-avatar">
+          <div class="user-info">
+            <img src="<?php echo($profile_pic); ?>" alt="User Avatar" class="user-avatar">
+            <span class="user-name"><?php echo($username); ?></span>
+          </div>
           <div class="dropdown-content">
-            <a href="../pages/profil.php"><i class="fas fa-user"></i><?php echo($username); ?></a>
-            <a href="barang-saya.php"><i class="fas fa-box"></i> Barang Saya</a>
-            <a href="riwayat.php"><i class="fas fa-history"></i> Riwayat Transaksi</a>
-            <a href="pengaturan.php"><i class="fas fa-cog"></i> Pengaturan</a>
-            <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="/proweb reshina/pages/profil.php"><i class="fas fa-user"></i><?php echo($username); ?></a>
+            <a href="/proweb reshina/index.php"><i class="fas fa-history"></i> dashboard</a>
+            <a href="/proweb reshina/Include/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
           </div>
         </div>
       </div>
